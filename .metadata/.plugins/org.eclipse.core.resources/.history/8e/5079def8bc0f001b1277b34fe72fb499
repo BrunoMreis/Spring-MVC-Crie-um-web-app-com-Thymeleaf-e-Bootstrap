@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron mb-0">
+			<h1 class="display-4">Novo Pedido</h1>
+		</div>
+
+		<div class="card mt-3">
+			<div class="card-body">
+				<form th:object="${requisicaoNovoPedido}" action="/pedido/novo"
+					method="POST">
+					<div class="form-group">
+						<label for="nomeProduto">Produto</label> <input
+							th:field="*{nomeProduto}" th:errorclass="is-invalid" placeholder="nome do produto"
+							class="form-control" /> <small>Informa qual o nome do
+							produto.</small>
+						<div th:errors="*{nomeProduto}" class="valid-feedback">Campo
+							deve ser preenchido!</div>
+					</div>
+					<div class="form-group">
+						<label for="urlProduto">Url</label> <input
+							th:field="*{urlProduto}" placeholder="url do produto"
+							class="form-control" /> <small>Procure em um site o
+							produto que você deseja e cole a url da página aqui.</small>
+						<div th:errors="*{urlProduto}" class="valid-feedback">Campo
+							deve ser preenchido!</div>
+					</div>
+					<div class="form-group">
+						<label for="urlImagem">Imagem</label> <input
+							th:field="*{urlImagem}" placeholder="url da imagem"
+							class="form-control" /> <small>Copie a url de uma boa
+							imagem do produto e cole aqui para ajudar a conseguir
+							compradores.</small>
+						<div th:errors="*{urlImagem}" class="valid-feedback">Campo
+							deve ser preenchido!</div>
+					</div>
+					<div class="form-group">
+						<label for="descricao">Descrição</label>
+						<textarea th:field="*{descricao}"
+							placeholder="Adicione detalhes importantes para ajudar o comprador."
+							class="form-control"></textarea>
+						<div th:errors="*{descricao}" class="valid-feedback">Campo
+							deve ser preenchido!</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

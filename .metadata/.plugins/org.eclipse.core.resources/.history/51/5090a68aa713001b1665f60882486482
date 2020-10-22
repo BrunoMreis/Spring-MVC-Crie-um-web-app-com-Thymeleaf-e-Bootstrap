@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{base :: head}">
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<div th:replace="~{base :: logo}"></div>
+
+	<div class="container">
+		<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
+		<nav
+			class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
+			<div class="navbar-nav">
+				<a th:classappend="${status} == 'null' ? 'ative'" class="nav-item nav-link" href="/home">Todos</a> <a
+					th:classappend="${status} == 'aguardando' ? 'ative'" class="nav-item nav-link" href="/home/aguardando">Aguardando</a> <a
+					th:classappend="${status} == 'aprovado' ? 'ative'" class="nav-item nav-link" href="/home/aprovado">Aprovado</a> <a
+					th:classappend="${status} == 'entregue' ? 'ative'" class="nav-item nav-link" href="/home/entegue">Entregue</a>
+			</div>
+			<a href="/pedido/formulario"><button
+					class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
+		</nav>
+
+
+		<div class="card mb-3" th:each="produto : ${pedidos}">
+
+
+			<th:blok th:switch="${produto.status.name()}">
+				<div th:case="'AGUARDANDO'" class="card-header alert alert-warning"
+					th:text="${produto.nome}">Nome produto:</div>
+				<div th:case="'APROVADO'" class="card-header alert alert-success"
+					th:text="${produto.nome}">Nome produto:</div>
+				<div th:case="'ENTREGUE'" class="card-header alert alert-dark"
+					th:text="${produto.nome}">Nome produto:</div>
+			</th:blok>
+
+
+
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-6 mb-3">
+
+						<div class="row">
+							<div class="col-sm-5">
+								valor: <span th:text="${produto.valor}">200,00</span>
+							</div>
+
+							<div class="col-sm-7">
+								Data de Entrega: <span th:text="${produto.dataDeEntrega}">20/12/2020</span>
+							</div>
+						</div>
+
+						<div>Produto</div>
+						<div>
+							<input class="form-control" th:value="${produto.urlDoProduto}"
+								value="url do produto">
+						</div>
+
+						<div>Descrição</div>
+						<div>
+							<textarea class="form-control"
+								th:text="${produto.descricaoDoProduto}">descrição do pedido</textarea>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6">
+						<div>
+							<img class="img-thumbnail" th:src="${produto.urlIMGProduto}"
+								src=" ">
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
