@@ -7,9 +7,11 @@
 		</list>
 	</section>
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.html.ui.internal.wizard.NewHTMLWizard"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.wst.web.ui"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.debug.ui.java"/>
+			<item value="org.eclipse.pde.PDE"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
@@ -18,24 +20,46 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
-			<item value="/mundi/src/main/resources/templates/home.html"/>
+			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/controller/HomeController.java"/>
+			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/controller/OfertaController.java"/>
 			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/model/Pedido.java"/>
+			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/controller/PedidoController.java"/>
+			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/WebSecurityConfig.java"/>
+			<item value="/mundi/src/main/java/br/com/alura/mvc/mundi/model/User.java"/>
 			<item value="org.eclipse.ui.console.ConsoleView"/>
+			<item value="/mundi/src/main/resources/templates/pedido/formulario.html"/>
 		</list>
 		<list key="orderedProviders">
 			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
 			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
 			<item value="org.eclipse.e4.ui.parts"/>
+			<item value="org.eclipse.ui.ide/org.eclipse.ui.internal.ide.dialogs.OpenResourceQuickAccessComputer"/>
 		</list>
 		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+			<item value="2"/>
+			<item value="2"/>
+			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
 			<item value="1"/>
 		</list>
 		<list key="textArray">
-			<item value="home"/>
-			<item value="pedid"/>
+			<item value="homec"/>
+			<item value="oferta"/>
+			<item value="ped"/>
+			<item value="pedido"/>
+			<item value="pedi"/>
+			<item value="pe"/>
+			<item value="web"/>
+			<item value="user"/>
 			<item value="console"/>
+			<item value="formula"/>
 		</list>
 	</section>
 </section>

@@ -8,38 +8,18 @@
 	<div th:replace="~{base :: logo}"></div>
 
 	<div class="container">
-		<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
-		<nav
-			class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
-			<div class="navbar-nav">
-				<a th:classappend="${status} == null ? 'active'"
-					class="nav-item nav-link" href="/home">Todos</a>
-					 <a
-					th:classappend="${status} == 'aguardando' ? 'active'"
-					class="nav-item nav-link" href="/home/aguardando">Aguardando</a>
-					 <a
-					th:classappend="${status} == 'aprovado' ? 'active'"
-					class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
-					 <a
-					th:classappend="${status} == 'entregue' ? 'active'"
-					class="nav-item nav-link" href="/home/entregue">Entregue</a>
-			</div>
-			<a href="/pedido/formulario"><button
-					class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
-		</nav>
+		<div th:replace="~{base :: titulo('Últimos pedidos')}"></div>
+
 
 
 		<div class="card mb-3" th:each="produto : ${pedidos}">
 
 
-			<th:blok th:switch="${produto.status.name()}">
-				<div th:case="'AGUARDANDO'" class="card-header alert alert-warning"
-					th:text="${produto.nome}">Nome produto:</div>
-				<div th:case="'APROVADO'" class="card-header alert alert-success"
-					th:text="${produto.nome}">Nome produto:</div>
-				<div th:case="'ENTREGUE'" class="card-header alert alert-dark"
-					th:text="${produto.nome}">Nome produto:</div>
-			</th:blok>
+			
+
+				<div class="card-header alert alert-dark" th:text="${produto.nome}">Nome
+					produto:</div>
+			
 
 
 
@@ -49,11 +29,13 @@
 
 						<div class="row">
 							<div class="col-sm-5">
-								valor: <span th:if=${produto.valor}!=null th:text="'R$ '+ ${#numbers.formatDecimal(produto.valor,3,'POINT',2,'COMMA')}">200,00</span>
+								valor: <span th:if=${produto.valor}!=null
+									th:text="'R$ '+ ${#numbers.formatDecimal(produto.valor,3,'POINT',2,'COMMA')}">200,00</span>
 							</div>
 
 							<div class="col-sm-7">
-								Data de Entrega: <span th:text="${#temporals.format(produto.dataDeEntrega, 'dd/MM/yyyy')}">20/12/2020</span>
+								Data de Entrega: <span
+									th:text="${#temporals.format(produto.dataDeEntrega, 'dd/MM/yyyy')}">20/12/2020</span>
 							</div>
 						</div>
 

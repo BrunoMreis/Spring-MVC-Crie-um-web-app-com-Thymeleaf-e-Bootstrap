@@ -6,28 +6,37 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Pedido {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	private String nome;
 	private BigDecimal valor;
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataDeEntrega;
 	private String urlDoProduto;
 	private String descricaoDoProduto;
 	private String urlIMGProduto;
-	
+
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
 
@@ -99,6 +108,14 @@ public class Pedido {
 		this.status = status;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", nome=" + nome + ", valor=" + valor + ", dataDeEntrega=" + dataDeEntrega
@@ -106,5 +123,4 @@ public class Pedido {
 				+ urlIMGProduto + ", status=" + status + "]";
 	}
 
-	
 }

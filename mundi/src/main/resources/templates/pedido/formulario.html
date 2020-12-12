@@ -10,7 +10,7 @@
 		<div th:replace="~{base :: titulo('Formulario')}"></div>
 		<div class="card mt-3">
 			<div class="card-body">
-				<form th:object="${requisicaoNovoPedido}" action="/pedido/novo"
+				<form th:object="${requisicaoNovoPedido}" th:action="@{/pedido/novo}"
 					method="POST">
 					<div class="form-group">
 						<label for="nomeProduto">Produto</label> <input
